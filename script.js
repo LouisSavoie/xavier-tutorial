@@ -1,5 +1,10 @@
 const p1punch = document.querySelector('#p1-punch')
 
+// States
+let p1health = 10
+let p2health = 10
+
 p1punch.addEventListener('pointerdown', () => {
-    console.log('player 1 punches')
+    p2health--
+    console.log('p2 health: ', p2health)
 })
