@@ -17,4 +17,12 @@ A coding project for kids.
   - commenting sections in JS
 6. Explain variables
   - create ints p1health, p2health
-7. 
+7. Explain heading tags
+  - create h1 in body
+  - create h3 in div#p1
+8. Explain copy/cut/paste
+  - create div#p1-controls in div#p1
+  - cut/paste button#p1-punch to div#p1-controls
+  - copy/paste div#p1-display as div#p2-display
+  - copy/paste p1punch and event listener as p2 variants
+
