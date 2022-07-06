@@ -25,4 +25,8 @@ A coding project for kids.
   - cut/paste button#p1-punch to div#p1-controls
   - copy/paste div#p1-display as div#p2-display
   - copy/paste p1punch and event listener as p2 variants
-
+9. Explain document, if, equivalency, else if, else
+  - create document event listener for 'keypress', pass e
+  - if e.code == 'KeyS' p2 gets punched
+  - if e.code == 'KeyK' p1 gets punched
+  - else log 'unknown key'

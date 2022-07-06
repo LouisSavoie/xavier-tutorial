@@ -12,5 +12,17 @@ p1punch.addEventListener('pointerdown', () => {
 
 p2punch.addEventListener('pointerdown', () => {
     p1health--
-    console.log('p1 health: ', p2health)
+    console.log('p1 health: ', p1health)
+})
+
+document.addEventListener('keypress', (e) => {
+    if (e.code == 'KeyS') {
+        p2health--
+        console.log('p2 health: ', p2health)
+    } else if (e.code == 'KeyK') {
+        p1health--
+        console.log('p1 health: ', p1health)
+    } else {
+        console.log('unknown key')
+    }
 })
