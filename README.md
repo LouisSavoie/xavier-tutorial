@@ -30,3 +30,6 @@ A coding project for kids.
   - if e.code == 'KeyS' p2 gets punched
   - if e.code == 'KeyK' p1 gets punched
   - else log 'unknown key'
+10. Explain functions and refactoring
+  - create punch(player)
+  - refactor event listeners
