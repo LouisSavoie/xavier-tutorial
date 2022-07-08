@@ -8,8 +8,10 @@ const p2winDisplay = document.querySelector('#p2-win')
 // States
 let p1health = 10
 let p2health = 10
+let gameOver = false
 
 function punch(player) {
+    if (gameOver) { return }
     if (player === 1) {
         p2health--
         p2healthDisplay.innerText = p2health
@@ -33,6 +35,7 @@ function endGame(player) {
     } else {
         p2winDisplay.classList = ""
     }
+    gameOver = true
 }
 
 p1punch.addEventListener('pointerdown', () => {

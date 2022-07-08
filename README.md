@@ -67,3 +67,9 @@ Explain html classes
 - create query selectors
 - add conditionals to punch fucntion
 - add endGame function
+
+Explain guard clauses and boolean
+
+- create let gameOver boolean
+- add setting gameOver to true to endGame function
+- add guard clause to punch function
