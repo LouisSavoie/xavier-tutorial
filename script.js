@@ -1,5 +1,7 @@
 const p1punch = document.querySelector('#p1-punch')
 const p2punch = document.querySelector('#p2-punch')
+const p1healthDisplay = document.querySelector('#p1-health')
+const p2healthDisplay = document.querySelector('#p2-health')
 
 // States
 let p1health = 10
@@ -8,9 +10,11 @@ let p2health = 10
 function punch(player) {
     if (player === 1) {
         p2health--
+        p2healthDisplay.innerText = p2health
         console.log('p2 health: ', p2health)
     } else {
         p1health--
+        p1healthDisplay.innerText = p1health
         console.log('p1 health: ', p1health)
     }
 }
