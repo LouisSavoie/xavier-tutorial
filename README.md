@@ -65,7 +65,7 @@ Explain html classes
 
 - create p#p1(&2)-win
 - create query selectors
-- add conditionals to punch fucntion
+- add conditionals to punch function
 - add endGame function
 
 Explain guard clauses and boolean
@@ -73,3 +73,9 @@ Explain guard clauses and boolean
 - create let gameOver boolean
 - add setting gameOver to true to endGame function
 - add guard clause to punch function
+
+Explain random numbers
+
+- change punch function form p1health-- to Math.floor(Math.random() * 10) + 1
+- change health values to 100
+- change punch function endGame checks to <= form ===

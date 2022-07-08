@@ -6,24 +6,24 @@ const p1winDisplay = document.querySelector('#p1-win')
 const p2winDisplay = document.querySelector('#p2-win')
 
 // States
-let p1health = 10
-let p2health = 10
+let p1health = 100
+let p2health = 100
 let gameOver = false
 
 function punch(player) {
     if (gameOver) { return }
     if (player === 1) {
-        p2health--
+        p2health -= Math.floor(Math.random() * 10) + 1
         p2healthDisplay.innerText = p2health
         console.log('p2 health: ', p2health)
-        if (p2health === 0) {
+        if (p2health <= 0) {
             endGame(player)
         }
     } else {
-        p1health--
+        p1health -= Math.floor(Math.random() * 10) + 1
         p1healthDisplay.innerText = p1health
         console.log('p1 health: ', p1health)
-        if (p1health === 0) {
+        if (p1health <= 0) {
             endGame(player)
         }
     }
