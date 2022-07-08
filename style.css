@@ -1,9 +1,23 @@
 body {
     background-color: lightgray;
+    text-align: center;
 }
 
 #display {
+    padding: .5rem 1rem 1rem 1rem;
     background-color: white;
+}
+
+#p1-display h3, #p1-win {
+    color: blue;
+}
+
+#p2-display h3, #p2-win {
+    color: red;
+}
+
+p {
+    font-size: 3rem;
 }
 
 .hidden {
