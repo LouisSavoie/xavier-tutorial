@@ -2,6 +2,8 @@ const p1punch = document.querySelector('#p1-punch')
 const p2punch = document.querySelector('#p2-punch')
 const p1healthDisplay = document.querySelector('#p1-health')
 const p2healthDisplay = document.querySelector('#p2-health')
+const p1winDisplay = document.querySelector('#p1-win')
+const p2winDisplay = document.querySelector('#p2-win')
 
 // States
 let p1health = 10
@@ -12,10 +14,24 @@ function punch(player) {
         p2health--
         p2healthDisplay.innerText = p2health
         console.log('p2 health: ', p2health)
+        if (p2health === 0) {
+            endGame(player)
+        }
     } else {
         p1health--
         p1healthDisplay.innerText = p1health
         console.log('p1 health: ', p1health)
+        if (p1health === 0) {
+            endGame(player)
+        }
+    }
+}
+
+function endGame(player) {
+    if (player === 1) {
+        p1winDisplay.classList = ""
+    } else {
+        p2winDisplay.classList = ""
     }
 }
 

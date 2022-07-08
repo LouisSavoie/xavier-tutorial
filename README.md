@@ -60,3 +60,10 @@ Explain updating displays
 - create h4#p1(&2)-health and set to 10
 - create query selectors
 - add updating innerText to punch function
+
+Explain html classes
+
+- create p#p1(&2)-win
+- create query selectors
+- add conditionals to punch fucntion
+- add endGame function
