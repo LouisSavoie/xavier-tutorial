@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#score-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#board-display {
+    height: 80vh;
+    width: 80vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: lightgray;
+    border: 2px solid black;
+}
+
+.tile {
+    height: calc(100% / 9);
+    width: calc(100% / 9);
+    border: 2px solid black;
+}
+
+.blue {
+    height: calc(100% / 9);
+    width: calc(100% / 9);
+    background-color: blue;
+    border: 2px solid darkblue;
+}
+
+.red {
+    height: calc(100% / 9);
+    width: calc(100% / 9);
+    background-color: red;
+    border: 2px solid darkred;
+}
+
+.food {
+    height: calc(100% / 9);
+    width: calc(100% / 9);
+    background-color: green;
+    border: 2px solid darkgreen;
+}
