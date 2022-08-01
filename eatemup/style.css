@@ -15,8 +15,9 @@ body {
 }
 
 #board-display {
-    height: 80vh;
-    width: 80vh;
+    --side: min(80vw, 80vh);
+    height: var(--side);
+    width: var(--side);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
