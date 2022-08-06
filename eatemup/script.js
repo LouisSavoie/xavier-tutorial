@@ -1,12 +1,17 @@
 const boardDisplay = document.getElementById('board-display')
+const resetButton = document.getElementById('reset-button')
 
-let board = ''
-let blue = { y: 4, x: 1 }
-let red = { y: 4, x: 7 }
+const boardDefault = ''
+const blueDefault = { y: 4, x: 1 }
+const redDefault = { y: 4, x: 7 }
 const boardSize = 9
 
+let board = ''
+let blue = { y: 5, x: 1 }
+let red = { y: 4, x: 7 }
+
 // IMPLEMENT: 
-// board reset
+// score reset
 // function to update positions (detect map edges)
 // function to spawn/despawn food, variables to track positions
 // game end detection
@@ -25,6 +30,17 @@ function buildBoard() {
     }
 }
 
+function reset() {
+    resetBoard()
+    // reset scores
+    render()
+}
+
+function resetBoard() {
+    blue = blueDefault
+    red = redDefault
+}
+
 function buildDiv(tile) {
     return `<div class="${tile}"></div>`
 }
@@ -32,8 +48,12 @@ function buildDiv(tile) {
 function render() {
     buildBoard()
     boardDisplay.innerHTML = board
-    board = ''
+    board = boardDefault
 }
+
+resetButton.addEventListener('click', () => {
+    reset()
+})
 
 // TESTING
 render()
