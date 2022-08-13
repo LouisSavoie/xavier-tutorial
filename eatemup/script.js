@@ -1,34 +1,59 @@
-const boardDisplay = document.getElementById('board-display')
-const resetButton = document.getElementById('reset-button')
-const blueScoreDisplay = document.getElementById('blue-score')
-const redScoreDisplay = document.getElementById('red-score')
-
-const boardDefault = ''
-const blueDefault = { y: 4, x: 1 }
-const redDefault = { y: 4, x: 7 }
-const boardSize = 9
-const scoreDefault = 0
-
-let board = ''
-let blue = { y: 4, x: 1 }
-let red = { y: 4, x: 7 }
-let blueScore = 0
-let redScore = 0
 
 // IMPLEMENT:
 // function to update positions (detect map edges)
 // function to spawn/despawn food, variables to track positions
 // game end detection
 
+const boardDisplay = document.getElementById('board-display')
+const resetButton = document.getElementById('reset-button')
+const blueScoreDisplay = document.getElementById('blue-score')
+const redScoreDisplay = document.getElementById('red-score')
+
+//CLASS IMPLEMENTATION
+class Player {
+    name;
+    x;
+    y;
+    score;
+    constructor(name, x, y) {
+        this.name = name
+        this.defaultX = x
+        this.defaultY = y
+        this.x = x
+        this.y = y
+        this.score = 0
+    }
+
+    div() {
+        return `<div class="${this.name}"></div>`
+    }
+
+    resetPos() {
+        this.x = this.defaultX
+        this.y = this.defaultY
+    }
+
+    resetScore() {
+        this.score = 0
+    }
+}
+
+let blue = new Player('blue', 4, 1)
+let red = new Player('red', 4, 7)
+
+const boardSize = 9
+
+let board = ''
+
 function buildBoard() {
     for (let i = 0; i < boardSize; i++) {
         for (let j = 0; j < boardSize; j++) {
-            if (i === blue.y && j === blue.x) {
-                board += buildDiv('blue')
-            } else if (i === red.y && j === red.x) {
-                board += buildDiv('red')
+            if (i === blue.x && j === blue.y) {
+                board += blue.div()
+            } else if (i === red.x && j === red.y) {
+                board += red.div()
             } else {
-                board += buildDiv('tile')
+                board += `<div class="tile"></div>`
             }
         }
     }
@@ -41,28 +66,30 @@ function reset() {
 }
 
 function resetBoard() {
-    blue = blueDefault
-    red = redDefault
+    blue.resetPos()
+    red.resetPos()
 }
 
 function resetScore() {
-    blueScore = scoreDefault
-    redScore = scoreDefault
-}
-
-function buildDiv(tile) {
-    return `<div class="${tile}"></div>`
+    blue.resetScore()
+    red.resetScore()
 }
 
 function render() {
     // update board
     buildBoard()
     boardDisplay.innerHTML = board
-    board = boardDefault
+    board = ''
     // update scores
-    blueScoreDisplay.innerText = `${blueScore}`
-    redScoreDisplay.innerText = `${redScore}`
+    blueScoreDisplay.innerText = blue.score
+    redScoreDisplay.innerText = red.score
 }
+
+// // function updatePosition(entity, axis, adjustment) {
+// //     if (entity === 'blue') {
+        
+// //     }
+// // }
 
 resetButton.addEventListener('click', () => {
     reset()
