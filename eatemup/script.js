@@ -15,12 +15,13 @@ class Player {
     x;
     y;
     score;
-    constructor(name, x, y) {
+    constructor(name, x, y, boardSize) {
         this.name = name
         this.defaultX = x
         this.defaultY = y
         this.x = x
         this.y = y
+        this.boardSize = boardSize
         this.score = 0
     }
 
@@ -36,21 +37,37 @@ class Player {
     resetScore() {
         this.score = 0
     }
+
+    moveUp() {
+        if (this.y - 1 >= 0) { this.y-- }
+    }
+
+    moveLeft() {
+        if (this.x - 1 >= 0) { this.x-- }
+    }
+
+    moveDown() {
+        if (this.y + 1 <= this.boardSize - 1) { this.y++ }
+    }
+
+    moveRight() {
+        if (this.x + 1 <= this.boardSize - 1) { this.x++ }
+    }
 }
 
-let blue = new Player('blue', 4, 1)
-let red = new Player('red', 4, 7)
-
+// GAME VARS
 const boardSize = 9
 
+// GLOBAL VARS
 let board = ''
 
+// GAME FUNCTIONS
 function buildBoard() {
     for (let i = 0; i < boardSize; i++) {
         for (let j = 0; j < boardSize; j++) {
-            if (i === blue.x && j === blue.y) {
+            if (i === blue.y && j === blue.x) {
                 board += blue.div()
-            } else if (i === red.x && j === red.y) {
+            } else if (i === red.y && j === red.x) {
                 board += red.div()
             } else {
                 board += `<div class="tile"></div>`
@@ -85,15 +102,25 @@ function render() {
     redScoreDisplay.innerText = red.score
 }
 
-// // function updatePosition(entity, axis, adjustment) {
-// //     if (entity === 'blue') {
-        
-// //     }
-// // }
 
+// EVENT LISTENERS
 resetButton.addEventListener('click', () => {
     reset()
 })
 
-// TESTING
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'w') { blue.moveUp() }
+    if (event.key === 'a') { blue.moveLeft() }
+    if (event.key === 's') { blue.moveDown() }
+    if (event.key === 'd') { blue.moveRight() }
+    if (event.key === 'i') { red.moveUp() }
+    if (event.key === 'j') { red.moveLeft() }
+    if (event.key === 'k') { red.moveDown() }
+    if (event.key === 'l') { red.moveRight() }
+    render()
+})
+
+// RUN GAME
+let blue = new Player('blue', 1, 4, boardSize)
+let red = new Player('red', 7, 4, boardSize)
 render()
