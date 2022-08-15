@@ -1,6 +1,5 @@
 
 // IMPLEMENT:
-// function to update positions (detect map edges)
 // function to spawn/despawn food, variables to track positions
 // game end detection
 
@@ -60,20 +59,31 @@ const boardSize = 9
 
 // GLOBAL VARS
 let board = ''
+let food = [{x: 4, y: 1}, {x: 7, y: 7}, {x: 3, y: 6}]
 
 // GAME FUNCTIONS
 function buildBoard() {
     for (let i = 0; i < boardSize; i++) {
         for (let j = 0; j < boardSize; j++) {
+			let foodMatch = false
+			food.forEach(e => {
+				if (e.x === j && e.y === i) foodMatch = true
+			})
             if (i === blue.y && j === blue.x) {
                 board += blue.div()
             } else if (i === red.y && j === red.x) {
                 board += red.div()
+            } else if (foodMatch) {
+                board += `<div class="food"></div>`
             } else {
                 board += `<div class="tile"></div>`
             }
         }
     }
+}
+
+function checkFoodPos(e, i, j) {
+	return e.x == j && e.y == i ? true : false
 }
 
 function reset() {
